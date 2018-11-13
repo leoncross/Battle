@@ -4,9 +4,19 @@ require 'capybara'
 Capybara.app
 
 class Battle < Sinatra::Base
+
+enable :sessions
+
   get '/' do
-    'Testing infrastructure working!'
+    erb :index
   end
+
+  post '/names' do
+    @player_1_name = params[:player_1_name]
+    @player_2_name = params[:player_2_name]
+    erb :play
+  end
+
 
 
 
