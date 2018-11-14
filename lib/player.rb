@@ -14,8 +14,12 @@ class Player
     @health
   end
 
-  def attacked
+  def receive_damage
     @health = @health - 10
+  end
+
+  def attack(player)
+    player.receive_damage
   end
 
 end
