@@ -1,13 +1,13 @@
+require_relative 'game'
 
 class Player
-  attr_reader :name
+  attr_accessor :name, :health
 
   HEALTH = 30
 
-  def initialize(name)
+  def initialize(name, health = HEALTH)
     @name = name
-    @health = HEALTH
-
+    @health = health
   end
 
   def health
@@ -16,10 +16,12 @@ class Player
 
   def receive_damage
     @health = @health - 10
+    dead?
   end
 
-  def attack(player)
-    player.receive_damage
+  def dead?
+    return false if @health > 5
+    return true
   end
 
 end

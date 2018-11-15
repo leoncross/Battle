@@ -1,26 +1,25 @@
 require 'player'
 
 describe Player do
-  subject(:leon) { Player.new('leon') }
-  subject(:alfred) { Player.new('alfred') }
+  subject(:player_1) { Player.new('leon') }
+  subject(:player_2) { Player.new('alfred') }
 
   describe '#name' do
     it 'returns the name' do
-      expect(leon.name).to eq 'leon'
+      expect(player_1.name).to eq 'leon'
     end
   end
 
   describe '#health' do
     it 'returns default value health (30)' do
-      expect(leon.health).to eq 30
+      expect(player_1.health).to eq 30
     end
   end
 
   describe '#receive_damage' do
-    it 'takes 10 hp off from the player' do
-      alfred.health
-      leon.attack(alfred)
-      expect(alfred.health).to eq 20
+    it 'calls on dead? if health less than 0' do
+      player_1.health = 10
+      expect(player_1.receive_damage).to eq (true)
     end
   end
 end

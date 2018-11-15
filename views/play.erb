@@ -1,11 +1,12 @@
 
 
+
 <style> h1 {text-decoration: underline;} </style>
 
 <h1><center> Battle of the Titans: </center></h1>
-<h2><center> <%= @player_1.name %> (<%= @player_1.health %>hp)</center></h2>
+<h2><center> <%= @game.player_1.name %> (<%= @game.player_1.health %>hp)</center></h2>
 
 <h2><center> vs. </center></h2>
 
-<h2><center><%= @player_2.name %> (<%= @player_2.health %>hp) </center></h2>
-<a href="/attack">Attack</a>
+<h2><center><%= @game.player_2.name %> (<%= @game.player_2.health %>hp) </center></h2>
+<a href="/attack_p1">Attack</a>
